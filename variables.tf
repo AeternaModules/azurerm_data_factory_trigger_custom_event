@@ -23,7 +23,7 @@ EOT
     eventgrid_topic_id    = string
     events                = set(string)
     name                  = string
-    activated             = optional(bool, true)
+    activated             = optional(bool) # Default: true
     additional_properties = optional(map(string))
     annotations           = optional(list(string))
     description           = optional(string)
