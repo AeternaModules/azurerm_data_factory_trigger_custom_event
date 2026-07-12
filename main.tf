@@ -12,9 +12,12 @@ resource "azurerm_data_factory_trigger_custom_event" "data_factory_trigger_custo
   subject_begins_with   = each.value.subject_begins_with
   subject_ends_with     = each.value.subject_ends_with
 
-  pipeline {
-    name       = each.value.pipeline.name
-    parameters = each.value.pipeline.parameters
+  dynamic "pipeline" {
+    for_each = each.value.pipeline
+    content {
+      name       = pipeline.value.name
+      parameters = pipeline.value.parameters
+    }
   }
 }
 
