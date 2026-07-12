@@ -1,3 +1,7 @@
+output "data_factory_trigger_custom_events_id" {
+  description = "Map of id values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.id }
+}
 output "data_factory_trigger_custom_events_activated" {
   description = "Map of activated values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
   value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.activated }
