@@ -42,33 +42,38 @@ EOT
     ])
     error_message = "Each pipeline list must contain at least 1 items"
   }
-  # --- Unconfirmed validation candidates, derived from azurerm_data_factory_trigger_custom_event's provider source ---
-  # Not auto-enabled: either a bespoke provider validator we can't safely translate,
-  # or a path that crosses a list-typed block (needs its own for_each wrapping).
-  # Review, translate into a real validation{} block above, and delete once confirmed.
-  # path: name
-  #   source:    [from validate.DataFactoryPipelineAndTriggerName] !regexp.MustCompile(`^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$`).MatchString(value)
-  # path: data_factory_id
-  #   source:    [from factories.ValidateFactoryID] !ok
-  # path: data_factory_id
-  #   source:    [from factories.ValidateFactoryID] err != nil
-  # path: eventgrid_topic_id
-  #   source:    [from topics.ValidateTopicID] !ok
-  # path: eventgrid_topic_id
-  #   source:    [from topics.ValidateTopicID] err != nil
-  # path: pipeline.name
-  #   source:    [from validate.DataFactoryPipelineAndTriggerName] !regexp.MustCompile(`^[A-Za-z0-9_][^<>*#.%&:\\+?/]*$`).MatchString(value)
-  # path: annotations[*]
-  #   condition: length(value) > 0
-  #   message:   must not be empty
-  # path: description
-  #   condition: length(value) > 0
-  #   message:   must not be empty
-  # path: subject_begins_with
-  #   condition: length(value) > 0
-  #   message:   must not be empty
-  # path: subject_ends_with
-  #   condition: length(value) > 0
-  #   message:   must not be empty
+  validation {
+    condition = alltrue([
+      for k, v in var.data_factory_trigger_custom_events : (
+        v.annotations == null || (alltrue([for x in v.annotations : length(x) > 0]))
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.data_factory_trigger_custom_events : (
+        v.description == null || (length(v.description) > 0)
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.data_factory_trigger_custom_events : (
+        v.subject_begins_with == null || (length(v.subject_begins_with) > 0)
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.data_factory_trigger_custom_events : (
+        v.subject_ends_with == null || (length(v.subject_ends_with) > 0)
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  # Note: 6 additional provider-side validators are enforced at apply time but not mirrored as validation{} blocks here (bespoke or non-mechanically-translatable).
 }
 
