@@ -1,49 +1,49 @@
 output "data_factory_trigger_custom_events_id" {
   description = "Map of id values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.id }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.id if v.id != null && length(v.id) > 0 }
 }
 output "data_factory_trigger_custom_events_activated" {
   description = "Map of activated values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.activated }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.activated if v.activated != null }
 }
 output "data_factory_trigger_custom_events_additional_properties" {
   description = "Map of additional_properties values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.additional_properties }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.additional_properties if v.additional_properties != null && length(v.additional_properties) > 0 }
 }
 output "data_factory_trigger_custom_events_annotations" {
   description = "Map of annotations values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.annotations }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.annotations if v.annotations != null && length(v.annotations) > 0 }
 }
 output "data_factory_trigger_custom_events_data_factory_id" {
   description = "Map of data_factory_id values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.data_factory_id }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.data_factory_id if v.data_factory_id != null && length(v.data_factory_id) > 0 }
 }
 output "data_factory_trigger_custom_events_description" {
   description = "Map of description values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.description }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.description if v.description != null && length(v.description) > 0 }
 }
 output "data_factory_trigger_custom_events_eventgrid_topic_id" {
   description = "Map of eventgrid_topic_id values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.eventgrid_topic_id }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.eventgrid_topic_id if v.eventgrid_topic_id != null && length(v.eventgrid_topic_id) > 0 }
 }
 output "data_factory_trigger_custom_events_events" {
   description = "Map of events values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.events }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.events if v.events != null && length(v.events) > 0 }
 }
 output "data_factory_trigger_custom_events_name" {
   description = "Map of name values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.name }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.name if v.name != null && length(v.name) > 0 }
 }
 output "data_factory_trigger_custom_events_pipeline" {
   description = "Map of pipeline values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.pipeline }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.pipeline if v.pipeline != null && length(v.pipeline) > 0 }
 }
 output "data_factory_trigger_custom_events_subject_begins_with" {
   description = "Map of subject_begins_with values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.subject_begins_with }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.subject_begins_with if v.subject_begins_with != null && length(v.subject_begins_with) > 0 }
 }
 output "data_factory_trigger_custom_events_subject_ends_with" {
   description = "Map of subject_ends_with values across all data_factory_trigger_custom_events, keyed the same as var.data_factory_trigger_custom_events"
-  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.subject_ends_with }
+  value       = { for k, v in azurerm_data_factory_trigger_custom_event.data_factory_trigger_custom_events : k => v.subject_ends_with if v.subject_ends_with != null && length(v.subject_ends_with) > 0 }
 }
 
